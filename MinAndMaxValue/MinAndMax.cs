@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace MinAndMaxValue;
 
@@ -10,12 +11,10 @@ public class MinAndMax
 {
     public static string FindMinAndMaxValue(string numbers)
     {
-        if (numbers.Length < 1) { return null; }
-        else if (numbers.Length == 0) { return numbers; }
-        int counter = 0;
-        int max = 0;
-        int min = 0;
         string[] words = numbers.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+        if (numbers.Length < 1) { return null; }
+        else if (words.Length == 1) { return numbers = $"{numbers} {numbers}"; }
+        int counter = 0, max = 0, min = 0;
         for (int i = 0; i < words.Length - 1; i++)
         {
             int number = Convert.ToInt32(words[i]);
